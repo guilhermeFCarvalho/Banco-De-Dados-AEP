@@ -1,0 +1,65 @@
+CREATE TABLE RECEITA (
+    IDRECEITA NUMBER(2) CONSTRAINT PK_IDRECEITA PRIMARY KEY,
+	NOMERECEITA VARCHAR2(50),
+	INGREDIENTES VARCHAR2(400),
+	INFORECEITA VARCHAR2(400)
+	);
+
+ALTER TABLE RECEITA ADD VEGANA VARCHAR2(5);/*Inserindo a coluna que informa se a receita é vegana ou não*/
+
+INSERT INTO RECEITA(IDRECEITA, NOMERECEITA, INGREDIENTES, INFORECEITA,VEGANA) VALUES(   
+    1,
+    'Patê de Beterraba',
+    'Talos de beterraba a gosto,1 colher de sopa de óleo,½ cebola,1 dente de alho,1 porção de ricota',
+    'Pique os talos de beterraba e refogue-os em uma panela com o óleo, cebola e alho. Misture a ricota até chegar ao ponto de purê. Deixe esfriar e sirva com torradas.',
+    'Sim'
+    );
+INSERT INTO RECEITA(IDRECEITA, NOMERECEITA, INGREDIENTES, INFORECEITA,VEGANA)  VALUES(   
+    2,
+    'Pizza Fingida',
+    '3 pães amanhecidos e fatiados, 1 xícara de chá de molho de tomate, 2 ovos, Cebola, salsinha e azeitonas picadas a gosto, Sal a gosto',
+    'Sem untar, forre uma forma com as fatias de pão. Espalhe o molho sobre elas, a cebola, salsinha e azeitona. Na batedeira, faça claras em neve e, depois bata as gemas junto. Cubra os pães com esse creme. Leve ao forno e deixe assar por cerca de 20 minutos.',
+    'Não'
+    );
+INSERT INTO RECEITA(IDRECEITA, NOMERECEITA, INGREDIENTES, INFORECEITA,VEGANA) VALUES(   
+    3,
+	'Suco de Casca de Manga',
+	'Casca de 3 mangas maduras e grandes, 1 litro de água',
+	'Bata as cascas no liquidificador com apenas 500 ml de água até triturar bem – assim se obtém uma grande quantidade de nutrientes. Coe, ponha o restante da água na jarra, adoce a gosto e mexa com uma colher.',
+	'Sim'
+	);
+INSERT INTO RECEITA(IDRECEITA, NOMERECEITA, INGREDIENTES, INFORECEITA,VEGANA) VALUES(
+    4,
+    'Bolinho de Arroz Assado',
+    '2 xícaras de chá do arroz que sobrou do jantar ou almoço, 1 colher de sopa de cebola picada, 1 dente de alho picado, 2 colheres de sopa de salsinha picada, 2 ovos, 1 xícara de chá de farinha de trigo, Sal a gosto',
+    'Coloque todos os ingredientes num pote e misture com as mãos até formar uma massa homogênea. Faça pequenos bolinhos e coloque-os num refratário untado com óleo. Asse em forno médio por 30 minutos.',
+    'Não'
+    );
+INSERT INTO RECEITA(IDRECEITA, NOMERECEITA, INGREDIENTES, INFORECEITA,VEGANA) VALUES(
+    5,
+    'Panquecas Verdes',
+    '1 xícara de talos de brócolis, 1 xícara de chá de leite, ¾ de xícara de chá de farinha de trigo, 2 ovos, 1 colher de sopa de margarina, Sal a gosto',
+    'Bata os talos com o leite no liquidificador. Passe a mistura numa peneira e leve novamente ao liquidificador com o restante dos ingredientes. Unte uma frigideira com óleo e coloque a massa com o auxílio de uma concha. Deixe-a assar até obter uma cor dourada, vire-a e coloque o recheio de sua preferência.',
+    'Não'
+    );
+INSERT INTO RECEITA(IDRECEITA, NOMERECEITA, INGREDIENTES, INFORECEITA,VEGANA) VALUES(
+    6,
+    'Geleia de Casca de Mamão',
+    '1 mamão médio,Açúcar, Água.',
+    'O mamão deve ser bem lavado e descascado. Coloque as cascas numa panela com água suficiente para cobri-las, e leve ao fogo deixando cozinhar bem. Retire do fogo quando as cascas estiverem desmanchando, e passe-as na peneira. Com a massa restante, meça-a e adicione metade da medida de açúcar, levando ao fogo novamente até se obter uma consistência gelatinosa.',
+    'Sim'
+    );
+	    
+
+
+    
+
+SELECT * FROM RECEITA ORDER BY IDRECEITA ASC; /*Mostrar todas as receitas em ordem crescente por ID*/
+SELECT * FROM RECEITA WHERE IDRECEITA=1; /*Mostrar apenas uma receita, localizando pelo id (utilizamos o IDRECEITA 1 como exemplo)*/
+SELECT * FROM RECEITA WHERE NOMERECEITA='Panquecas Verdes'; /*Mostrar apenas uma receita, localizando pelo nome (utilizamos a receita Panquecas Verdes como exemplo)*/
+
+SELECT NOMERECEITA, INGREDIENTES FROM RECEITA; /*Mostra o nome das receitas e seus respectivos ingredientes*/
+SELECT NOMERECEITA, INGREDIENTES FROM RECEITA WHERE NOMERECEITA='Panquecas Verdes'; /*Mostra uma receita específica localizada pelo nome e seus respectivos ingredientes)*/
+SELECT NOMERECEITA, INFORECEITA FROM RECEITA WHERE NOMERECEITA='Suco de Casca de Manga'; /*Mostra o nome de uma receita específica e seu modo de preparo*/
+SELECT NOMERECEITA, INGREDIENTES, INFORECEITA FROM RECEITA WHERE VEGANA='Sim'; /*Mostra apenas receitas veganas*/
+
